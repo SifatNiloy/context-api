@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { RingContext } from '../../App';
+import Five from '../Five/Five';
 
-const Four = () => {
+const Four = ({ service }) => {
+    const { name, description, price, img } = service;
+    // console.log(abc)
     return (
         <Card style={{ width: '18rem', border: '2px solid blue' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
+            <Card.Img style={{ width: '200px' }} variant="top" src={img} />
             <Card.Body>
-                <Card.Title>Card Title</Card.Title>
+                <Card.Title>{name}</Card.Title>
                 <Card.Text>
-                    Some quick example text to build on the card title and make up the
-                    bulk of the card's content.
+                    {description}
                 </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
+                <Five price={price}></Five>
+                <Button variant="primary"></Button>
             </Card.Body>
-        </Card>
+        </Card >
     );
 };
 

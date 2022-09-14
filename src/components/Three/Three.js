@@ -1,14 +1,18 @@
 import React from 'react';
 import Four from '../Four/Four';
+import useService from '../useService/useService';
 
-const Three = ({ service }) => {
-    const { description } = service;
-    // console.log(service.description)
+const Three = () => {
+    const { services } = useService();
+    console.log(services)
     return (
         <div style={{ border: '3px solid green' }}>
             <h4>This is from three</h4>
-            <h3>{description}</h3>
-            <Four></Four>
+            {
+                services.map(service => <Four
+                    key={service.id}
+                    service={service}></Four>)
+            }
         </div>
     );
 };
